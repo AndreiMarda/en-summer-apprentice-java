@@ -1,15 +1,21 @@
-package com.endava.java2023demo;
+package com.endava.model;
 
 import jakarta.persistence.*;
 
+import java.io.Serializable;
+
 @Entity
-@Table(name = "TicketCategory")
-public class TicketCategory {
+@Table(name = "ticket_category")
+public class TicketCategory implements Serializable {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Column (name = "ticket_category_id")
     private int TicketCategory;
+    @Column (name = "event_id")
     private int eventID;
+    @Column (name = "description")
     private String description;
+    @Column (name = "price")
     private int price;
 
     public TicketCategory(int ticketCategory, int eventID, String description, int price) {

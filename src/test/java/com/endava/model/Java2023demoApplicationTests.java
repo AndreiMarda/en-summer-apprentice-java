@@ -1,4 +1,4 @@
-package com.endava.java2023demo;
+package com.endava.model;
 
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;

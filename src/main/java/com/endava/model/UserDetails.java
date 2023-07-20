@@ -1,18 +1,23 @@
-package com.endava.java2023demo;
+package com.endava.model;
 
 import jakarta.persistence.*;
 
+import java.io.Serializable;
+
 @Entity
-@Table(name = "UserDetails")
-public class UserDetails {
+@Table(name = "user_details")
+public class UserDetails implements Serializable {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private int userID;
+    @Column (name = "user_id")
+    private int user_id;
+    @Column (name = "name")
     private String name;
+    @Column (name = "email")
     private String email;
 
     public UserDetails(int userID, String name, String email) {
-        this.userID = userID;
+        this.user_id = userID;
         this.name = name;
         this.email = email;
     }
@@ -20,11 +25,11 @@ public class UserDetails {
     public UserDetails(){ }
 
     public int getUserID() {
-        return userID;
+        return user_id;
     }
 
     public void setUserID(int userID) {
-        this.userID = userID;
+        this.user_id = userID;
     }
 
     public String getName() {

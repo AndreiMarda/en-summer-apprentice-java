@@ -3,6 +3,7 @@ package com.endava.model;
 import jakarta.persistence.*;
 
 import java.io.Serializable;
+import java.math.BigDecimal;
 
 @Entity
 @Table(name = "ticket_category")
@@ -16,9 +17,9 @@ public class TicketCategory implements Serializable {
     @Column (name = "description")
     private String description;
     @Column (name = "price")
-    private int price;
+    private BigDecimal price;
 
-    public TicketCategory(int ticketCategory, int eventID, String description, int price) {
+    public TicketCategory(int ticketCategory, int eventID, String description, BigDecimal price) {
         TicketCategory = ticketCategory;
         this.eventID = eventID;
         this.description = description;
@@ -51,11 +52,11 @@ public class TicketCategory implements Serializable {
         this.description = description;
     }
 
-    public int getPrice() {
+    public BigDecimal getPrice() {
         return price;
     }
 
-    public void setPrice(int price) {
+    public void setPrice(BigDecimal price) {
         this.price = price;
     }
 }

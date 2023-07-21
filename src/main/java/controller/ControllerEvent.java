@@ -11,10 +11,8 @@ import java.util.List;
 @RestController
 public class ControllerEvent {
     private ServiceEvent service_event;
-
-    @Autowired
     public ControllerEvent(ServiceEvent service_event){
-        service_event = service_event;
+        this.service_event = service_event;
     }
     @GetMapping("/event")
     public List<Event> events(){

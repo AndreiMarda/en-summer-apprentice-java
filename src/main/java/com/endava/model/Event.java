@@ -3,7 +3,8 @@ package com.endava.model;
 import jakarta.persistence.*;
 
 import java.io.Serializable;
-import java.time.LocalDate;
+import java.util.Date;
+
 @Entity
 @Table(name = "event")
 public class Event implements Serializable {
@@ -22,11 +23,11 @@ public class Event implements Serializable {
     @Column (name = "name")
     private String name;
     @Column (name = "start_date")
-    private LocalDate start_date;
+    private Date start_date;
     @Column (name = "end_date")
-    private LocalDate end_date;
+    private Date end_date;
 
-    public Event(int event_id, EventType event_type, Venue venue_id, String description, String name, LocalDate start_date, LocalDate end_date) {
+    public Event(int event_id, EventType event_type, Venue venue_id, String description, String name, Date start_date, Date end_date) {
         this.event_id = event_id;
         this.event_type = event_type;
         this.venue_id = venue_id;
@@ -78,19 +79,19 @@ public class Event implements Serializable {
         this.name = name;
     }
 
-    public LocalDate getStart_date() {
+    public Date getStart_date() {
         return start_date;
     }
 
-    public void setStart_date(LocalDate start_date) {
+    public void setStart_date(Date start_date) {
         this.start_date = start_date;
     }
 
-    public LocalDate getEnd_date() {
+    public Date getEnd_date() {
         return end_date;
     }
 
-    public void setEnd_date(LocalDate end_date) {
+    public void setEnd_date(Date end_date) {
         this.end_date = end_date;
     }
 }

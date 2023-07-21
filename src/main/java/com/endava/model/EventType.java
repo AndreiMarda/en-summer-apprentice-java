@@ -8,7 +8,7 @@ import java.io.Serializable;
 public class EventType implements Serializable {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column (name = "event_typeid")
+    @Column (name = "event_type_id")
     private int event_type_id;
     @Column (name = "name")
     private String name;

@@ -3,7 +3,8 @@ package com.endava.model;
 import jakarta.persistence.*;
 
 import java.io.Serializable;
-import java.time.LocalDate;
+import java.math.BigDecimal;
+import java.util.Date;
 
 @Entity
 @Table(name = "order_details")
@@ -19,13 +20,13 @@ public class Order implements Serializable {
     @ManyToOne
     private TicketCategory ticket_categor;
     @Column (name = "ordered_at")
-    private LocalDate ordered_at;
+    private Date ordered_at;
     @Column (name = "number_of_tickets")
     private int number_of_tickets;
     @Column (name = "total_price")
-    private int price;
+    private BigDecimal price;
 
-    public Order(int orderID, UserDetails user, TicketCategory ticket_categor, LocalDate ordered_at, int number_of_tickets, int price) {
+    public Order(int orderID, UserDetails user, TicketCategory ticket_categor, Date ordered_at, int number_of_tickets, BigDecimal price) {
         this.order_id = orderID;
         this.user = user;
         this.ticket_categor = ticket_categor;
@@ -60,11 +61,11 @@ public class Order implements Serializable {
         this.ticket_categor = ticket_categor;
     }
 
-    public LocalDate getOrdered_at() {
+    public Date getOrdered_at() {
         return ordered_at;
     }
 
-    public void setOrdered_at(LocalDate ordered_at) {
+    public void setOrdered_at(Date ordered_at) {
         this.ordered_at = ordered_at;
     }
 
@@ -76,11 +77,11 @@ public class Order implements Serializable {
         this.number_of_tickets = number_of_tickets;
     }
 
-    public int getPrice() {
+    public BigDecimal getPrice() {
         return price;
     }
 
-    public void setPrice(int price) {
+    public void setPrice(BigDecimal price) {
         this.price = price;
     }
 }

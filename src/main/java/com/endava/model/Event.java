@@ -12,10 +12,10 @@ public class Event implements Serializable {
     @GeneratedValue (strategy = GenerationType.IDENTITY)
     @Column (name = "event_id")
     private int event_id;
-    @JoinColumn (name = "event_type_id")
+    @JoinColumn (name = "event_type_id", referencedColumnName = "event_type_id")
     @ManyToOne
     private EventType event_type;
-    @JoinColumn (name = "venue_id")
+    @JoinColumn (name = "venue_id", referencedColumnName = "venue_id")
     @ManyToOne
     private Venue venue_id;
     @Column (name = "description")
@@ -26,16 +26,6 @@ public class Event implements Serializable {
     private Date start_date;
     @Column (name = "end_date")
     private Date end_date;
-
-    public Event(int event_id, EventType event_type, Venue venue_id, String description, String name, Date start_date, Date end_date) {
-        this.event_id = event_id;
-        this.event_type = event_type;
-        this.venue_id = venue_id;
-        this.description = description;
-        this.name = name;
-        this.start_date = start_date;
-        this.end_date = end_date;
-    }
 
     public Event(){ }
 

@@ -10,7 +10,9 @@ import java.util.List;
 
 @RestController
 public class ControllerEvent {
+
     private ServiceEvent service_event;
+    @Autowired
     public ControllerEvent(ServiceEvent service_event){
         this.service_event = service_event;
     }

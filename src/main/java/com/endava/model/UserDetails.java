@@ -16,12 +16,6 @@ public class UserDetails implements Serializable {
     @Column (name = "email")
     private String email;
 
-    public UserDetails(int userID, String name, String email) {
-        this.user_id = userID;
-        this.name = name;
-        this.email = email;
-    }
-
     public UserDetails(){ }
 
     public int getUserID() {

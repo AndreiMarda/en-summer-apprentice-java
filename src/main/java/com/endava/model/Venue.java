@@ -1,6 +1,5 @@
 package com.endava.model;
 import jakarta.persistence.*;
-
 import java.io.Serializable;
 
 @Entity

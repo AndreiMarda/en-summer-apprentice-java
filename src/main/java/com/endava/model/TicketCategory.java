@@ -19,13 +19,6 @@ public class TicketCategory implements Serializable {
     @Column (name = "price")
     private BigDecimal price;
 
-    public TicketCategory(int ticketCategory, int eventID, String description, BigDecimal price) {
-        TicketCategory = ticketCategory;
-        this.eventID = eventID;
-        this.description = description;
-        this.price = price;
-    }
-
     public TicketCategory(){ }
 
     public int getTicketCategory() {

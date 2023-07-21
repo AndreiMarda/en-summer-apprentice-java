@@ -13,10 +13,10 @@ public class Order implements Serializable {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column (name = "order_id")
     private int order_id;
-    @JoinColumn (name = "user_id")
+    @JoinColumn (name = "user_id", referencedColumnName = "user_id")
     @ManyToOne
     private UserDetails user;
-    @JoinColumn (name = "ticket_category_id")
+    @JoinColumn (name = "ticket_category_id", referencedColumnName = "ticket_category_id")
     @ManyToOne
     private TicketCategory ticket_categor;
     @Column (name = "ordered_at")
@@ -25,15 +25,6 @@ public class Order implements Serializable {
     private int number_of_tickets;
     @Column (name = "total_price")
     private BigDecimal price;
-
-    public Order(int orderID, UserDetails user, TicketCategory ticket_categor, Date ordered_at, int number_of_tickets, BigDecimal price) {
-        this.order_id = orderID;
-        this.user = user;
-        this.ticket_categor = ticket_categor;
-        this.ordered_at = ordered_at;
-        this.number_of_tickets = number_of_tickets;
-        this.price = price;
-    }
 
     public Order() { }
 

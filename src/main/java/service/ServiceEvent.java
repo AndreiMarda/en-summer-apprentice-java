@@ -1,11 +1,15 @@
 package service;
 
+import com.endava.model.Event;
+import org.springframework.stereotype.Service;
 import repository.EventRepository;
 
+import java.util.List;
+@Service
 public class ServiceEvent {
     private EventRepository event_repository;
-    public ServiceEvent(EventRepository event_repository){
-        this.event_repository = event_repository;
-    }
 
+    public List<Event> eventFindAll(){
+        return event_repository.findAll();
+    }
 }

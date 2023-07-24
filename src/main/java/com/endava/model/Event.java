@@ -3,6 +3,7 @@ package com.endava.model;
 import jakarta.persistence.*;
 import java.io.Serializable;
 import java.util.Date;
+import java.util.List;
 
 @Entity
 @Table(name = "event")
@@ -17,14 +18,24 @@ public class Event implements Serializable {
     @JoinColumn (name = "venue_id", referencedColumnName = "venue_id")
     @ManyToOne
     private Venue venue_id;
-    @Column (name = "description")
-    private String description;
-    @Column (name = "name")
-    private String name;
+    @Column (name = "event_description")
+    private String event_description;
+    @Column (name = "event_name")
+    private String event_name;
     @Column (name = "start_date")
     private Date start_date;
     @Column (name = "end_date")
     private Date end_date;
+
+    public Event(int event_id, EventType event_type, Venue venue_id, String event_description, String event_name, Date start_date, Date end_date) {
+        this.event_id = event_id;
+        this.event_type = event_type;
+        this.venue_id = venue_id;
+        this.event_description = event_description;
+        this.event_name = event_name;
+        this.start_date = start_date;
+        this.end_date = end_date;
+    }
 
     public Event(){ }
 
@@ -53,19 +64,19 @@ public class Event implements Serializable {
     }
 
     public String getDescription() {
-        return description;
+        return event_description;
     }
 
     public void setDescription(String description) {
-        this.description = description;
+        this.event_description = description;
     }
 
     public String getName() {
-        return name;
+        return event_name;
     }
 
     public void setName(String name) {
-        this.name = name;
+        this.event_name = name;
     }
 
     public Date getStart_date() {

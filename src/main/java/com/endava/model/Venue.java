@@ -8,7 +8,7 @@ public class Venue implements Serializable {
     @Id
     @GeneratedValue (strategy = GenerationType.IDENTITY)
     @Column (name = "venue_id")
-    private int venueID;
+    private int venue_id;
     @Column (name = "type")
     private String type;
     @Column (name = "location")
@@ -16,10 +16,17 @@ public class Venue implements Serializable {
     @Column (name = "capacity")
     private int capacity;
 
+    public Venue(int venue_id, String type, String location, int capacity) {
+        this.venue_id = venue_id;
+        this.type = type;
+        this.location = location;
+        this.capacity = capacity;
+    }
+
     public Venue(){ };
 
     public int getVenueID() {
-        return venueID;
+        return venue_id;
     }
 
     public String getType() {
@@ -35,7 +42,7 @@ public class Venue implements Serializable {
     }
 
     public void setVenueID(int venueID) {
-        this.venueID = venueID;
+        this.venue_id = venue_id;
     }
 
     public void setType(String type) {

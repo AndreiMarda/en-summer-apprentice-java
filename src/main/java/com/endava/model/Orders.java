@@ -7,18 +7,18 @@ import java.math.BigDecimal;
 import java.util.Date;
 
 @Entity
-@Table(name = "order_details")
-public class Order implements Serializable {
+@Table(name = "orders")
+public class Orders implements Serializable {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column (name = "order_id")
     private int order_id;
-    @JoinColumn (name = "user_id", referencedColumnName = "user_id")
+    @JoinColumn (name = "customer_id", referencedColumnName = "customer_id")
     @ManyToOne
-    private UserDetails user;
+    private Customer customer_id;
     @JoinColumn (name = "ticket_category_id", referencedColumnName = "ticket_category_id")
     @ManyToOne
-    private TicketCategory ticket_categor;
+    private TicketCategory ticket_category;
     @Column (name = "ordered_at")
     private Date ordered_at;
     @Column (name = "number_of_tickets")
@@ -26,7 +26,16 @@ public class Order implements Serializable {
     @Column (name = "total_price")
     private BigDecimal price;
 
-    public Order() { }
+    public Orders(int order_id, Customer customer_id, TicketCategory ticket_category, Date ordered_at, int number_of_tickets, BigDecimal price) {
+        this.order_id = order_id;
+        this.customer_id = customer_id;
+        this.ticket_category = ticket_category;
+        this.ordered_at = ordered_at;
+        this.number_of_tickets = number_of_tickets;
+        this.price = price;
+    }
+
+    public Orders() { }
 
     public int getOrderID() {
         return order_id;
@@ -36,20 +45,20 @@ public class Order implements Serializable {
         this.order_id = orderID;
     }
 
-    public UserDetails getUser() {
-        return user;
+    public Customer getUser() {
+        return customer_id;
     }
 
-    public void setUser(UserDetails user) {
-        this.user = user;
+    public void setUser(Customer user) {
+        this.customer_id = user;
     }
 
     public TicketCategory getTicket_categor() {
-        return ticket_categor;
+        return ticket_category;
     }
 
-    public void setTicket_categor(TicketCategory ticket_categor) {
-        this.ticket_categor = ticket_categor;
+    public void setTicket_category(TicketCategory ticket_category) {
+        this.ticket_category = ticket_category;
     }
 
     public Date getOrdered_at() {

@@ -1,9 +1,9 @@
 package repository;
 
-import com.endava.model.UserDetails;
+import com.endava.model.Customer;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 
 @Repository
-public interface UserDetailsRepository extends JpaRepository<UserDetails, Integer> {
+public interface CustomerRepository extends JpaRepository<Customer, Integer> {
 }

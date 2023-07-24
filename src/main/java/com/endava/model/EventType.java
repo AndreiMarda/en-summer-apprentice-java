@@ -13,6 +13,11 @@ public class EventType implements Serializable {
     @Column (name = "name")
     private String name;
 
+    public EventType(int event_type_id, String name) {
+        this.event_type_id = event_type_id;
+        this.name = name;
+    }
+
     public EventType(){ }
 
     public int getEvent_type_id() {

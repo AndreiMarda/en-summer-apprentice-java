@@ -10,7 +10,6 @@ import java.util.List;
 
 @RestController
 public class ControllerEvent {
-
     private ServiceEvent service_event;
     @Autowired
     public ControllerEvent(ServiceEvent service_event){
@@ -20,5 +19,4 @@ public class ControllerEvent {
     public List<Event> events(){
         return service_event.eventFindAll();
     }
-
 }

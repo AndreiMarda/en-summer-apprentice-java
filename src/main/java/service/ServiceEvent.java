@@ -9,7 +9,7 @@ import java.util.List;
 @Service
 public class ServiceEvent {
     private EventRepository event_repository;
-
+    @Autowired
     public ServiceEvent (EventRepository event_repository){
         this.event_repository = event_repository;
     }

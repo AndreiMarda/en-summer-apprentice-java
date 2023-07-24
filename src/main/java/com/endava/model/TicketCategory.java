@@ -11,30 +11,37 @@ public class TicketCategory implements Serializable {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column (name = "ticket_category_id")
-    private int TicketCategory;
+    private int ticketCategory;
     @Column (name = "event_id")
-    private int eventID;
+    private int event_id;
     @Column (name = "description")
     private String description;
     @Column (name = "price")
     private BigDecimal price;
 
+    public TicketCategory(int ticketCategory, int event_id, String description, BigDecimal price) {
+        this.ticketCategory = ticketCategory;
+        this.event_id = event_id;
+        this.description = description;
+        this.price = price;
+    }
+
     public TicketCategory(){ }
 
     public int getTicketCategory() {
-        return TicketCategory;
+        return ticketCategory;
     }
 
     public void setTicketCategory(int ticketCategory) {
-        TicketCategory = ticketCategory;
+        ticketCategory = ticketCategory;
     }
 
     public int getEventID() {
-        return eventID;
+        return event_id;
     }
 
-    public void setEventID(int eventID) {
-        this.eventID = eventID;
+    public void setEventID(int event_id) {
+        this.event_id = event_id;
     }
 
     public String getDescription() {

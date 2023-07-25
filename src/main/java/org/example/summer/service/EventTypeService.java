@@ -5,10 +5,15 @@ import org.springframework.stereotype.Service;
 import org.example.summer.repository.EventTypeRepository;
 import java.util.List;
 @Service
-public class ServiceEventType {
-    private EventTypeRepository event_type_repo;
+public class EventTypeService {
+    private EventTypeRepository eventTypeRepository;
+
+    public EventTypeService(EventTypeRepository eventTypeRepository) {
+        this.eventTypeRepository = eventTypeRepository;
+    }
+
     public List<EventType> event_typeFindAll()
     {
-        return event_type_repo.findAll();
+        return eventTypeRepository.findAll();
     }
 }

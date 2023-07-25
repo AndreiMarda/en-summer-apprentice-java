@@ -10,20 +10,19 @@ import java.util.List;
 import java.util.Optional;
 
 @Service
-public class ServiceEvent {
-    private EventRepository event_repository;
-
+public class EventService {
+    private EventRepository eventRepository;
     @Autowired
-    public ServiceEvent(EventRepository event_repository) {
-        this.event_repository = event_repository;
+    public EventService(EventRepository event_repository) {
+        this.eventRepository = event_repository;
     }
 
     public List<Event> eventFindAll() {
-        return event_repository.findAll();
+        return eventRepository.findAll();
     }
 
     public Event findById(int id) {
-        Optional<Event> eventFindById = event_repository.findById(id);
+        Optional<Event> eventFindById = eventRepository.findById(id);
         if (eventFindById.isPresent()) {
             return eventFindById.get();
         } else
@@ -33,19 +32,19 @@ public class ServiceEvent {
     public List<Event> getEventsByVenue_idAndEvent_type_id(Integer venue_id, String event_type_name) {
         List<Event> result;
         if ((venue_id == null) && (event_type_name == null)) {
-            return event_repository.findAll();
+            return eventRepository.findAll();
         }
         if (venue_id != null) {
-            result = event_repository.searchByVenue(venue_id);
+            result = eventRepository.searchByVenue(venue_id);
         } else if (event_type_name != null) {
-            result = event_repository.searchByType(event_type_name);
+            result = eventRepository.searchByType(event_type_name);
         }else{
-            result = event_repository.searchByVenueAndType(venue_id, event_type_name);
+            result = eventRepository.searchByVenueAndType(venue_id, event_type_name);
         }
         return result;
     }
 
     public Event getEventById(int event_id) {
-        return event_repository.findById(event_id).orElse(null);
+        return eventRepository.findById(event_id).orElse(null);
     }
 }

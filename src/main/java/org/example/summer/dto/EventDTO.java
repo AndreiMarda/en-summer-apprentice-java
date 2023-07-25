@@ -1,92 +1,78 @@
 package org.example.summer.dto;
 
+import org.example.summer.model.Event;
 import java.sql.Timestamp;
+import java.util.ArrayList;
 import java.util.List;
 
 public class EventDTO {
-    private String name;
-    private String event_type_id;
-    private String description;
-    private String location;
-    private String location_type;
-    private Timestamp start_date;
-    private Timestamp end_date;
-    private List<TicketCategoryDTO> ticketCategories;
-
-    public EventDTO(){}
-
-    public EventDTO(String name, String event_type_id, String description, String location, String location_type, Timestamp start_date, Timestamp end_date, List<TicketCategoryDTO> ticketCategories) {
-        this.name = name;
-        this.event_type_id = event_type_id;
-        this.description = description;
-        this.location = location;
-        this.location_type = location_type;
-        this.start_date = start_date;
-        this.end_date = end_date;
-        this.ticketCategories = ticketCategories;
+    private int eventID;
+    private String eventDescription;
+    private String eventName;
+    private Timestamp startDate;
+    private Timestamp endDate;
+    private List<TicketCategoryDTO> ticketCategoryDTOList;
+    private VenueDTO venueDTO;
+    private String eventTypeName;
+    public EventDTO() {
     }
 
-    public String getName() {
-        return name;
+    public EventDTO(Event event) {
+        this.eventID = event.getEventId();
+        this.eventDescription = event.getEventDescription();
+        this.eventName = event.getEventName();
+        this.startDate = (Timestamp) event.getStartDate();
+        this.endDate = (Timestamp) event.getEndDate();
+        this.venueDTO = new VenueDTO();
+        this.eventTypeName = event.getEventType().getName();
+        this.ticketCategoryDTOList = new ArrayList<>();
     }
 
-    public void setName(String name) {
-        this.name = name;
+    public int getEventID() {
+        return eventID;
     }
 
-    public String getEvent_type_id() {
-        return event_type_id;
+    public void setEventID(int eventID) {
+        this.eventID = eventID;
     }
 
-    public void setEvent_type_id(String event_type_id) {
-        this.event_type_id = event_type_id;
+    public String getEventDescription() {
+        return eventDescription;
     }
 
-    public String getDescription() {
-        return description;
+    public void setEventDescription(String eventDescription) {
+        this.eventDescription = eventDescription;
     }
 
-    public void setDescription(String description) {
-        this.description = description;
+    public String getEventName() {
+        return eventName;
     }
 
-    public String getLocation() {
-        return location;
+    public void setEventName(String eventName) {
+        this.eventName = eventName;
     }
 
-    public void setLocation(String location) {
-        this.location = location;
+    public Timestamp getStartDate() {
+        return startDate;
     }
 
-    public String getLocation_type() {
-        return location_type;
+    public void setStartDate(Timestamp startDate) {
+        this.startDate = startDate;
     }
 
-    public void setLocation_type(String location_type) {
-        this.location_type = location_type;
+    public Timestamp getEndDate() {
+        return endDate;
     }
 
-    public Timestamp getStart_date() {
-        return start_date;
+    public void setEndDate(Timestamp endDate) {
+        this.endDate = endDate;
     }
 
-    public void setStart_date(Timestamp start_date) {
-        this.start_date = start_date;
+    public List<TicketCategoryDTO> getTicketCategoryDTOList() {
+        return ticketCategoryDTOList;
     }
 
-    public Timestamp getEnd_date() {
-        return end_date;
-    }
-
-    public void setEnd_date(Timestamp end_date) {
-        this.end_date = end_date;
-    }
-
-    public List<TicketCategoryDTO> getTicketCategories() {
-        return ticketCategories;
-    }
-
-    public void setTicketCategories(List<TicketCategoryDTO> ticketCategories) {
-        this.ticketCategories = ticketCategories;
+    public void setTicketCategories(List<TicketCategoryDTO> ticketCategoryDTOList) {
+        this.ticketCategoryDTOList = ticketCategoryDTOList;
     }
 }

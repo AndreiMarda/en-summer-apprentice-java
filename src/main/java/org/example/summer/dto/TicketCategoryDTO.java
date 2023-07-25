@@ -1,31 +1,19 @@
 package org.example.summer.dto;
 
+import org.example.summer.model.TicketCategory;
+
 import java.math.BigDecimal;
 
 public class TicketCategoryDTO {
+    private int ticketCategoryID;
+    private int eventID;
     private String description;
-    private BigDecimal price;
+    private int price;
 
-    public TicketCategoryDTO(){ }
-
-    public TicketCategoryDTO(String description, BigDecimal price) {
-        this.description = description;
-        this.price = price;
-    }
-
-    public String getDescription() {
-        return description;
-    }
-
-    public void setDescription(String description) {
-        this.description = description;
-    }
-
-    public BigDecimal getPrice() {
-        return price;
-    }
-
-    public void setPrice(BigDecimal price) {
-        this.price = price;
+    public TicketCategoryDTO(TicketCategory ticketCategory) {
+        this.ticketCategoryID = ticketCategory.getTicketCategoryId();
+        this.eventID = ticketCategory.getEventID();
+        this.description = ticketCategory.getDescription();
+        this.price = ticketCategory.getPrice();
     }
 }

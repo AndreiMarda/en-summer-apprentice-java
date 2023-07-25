@@ -4,15 +4,15 @@ import jakarta.persistence.EntityNotFoundException;
 import org.example.summer.model.Event;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
-import org.example.summer.service.ServiceEvent;
+import org.example.summer.service.EventService;
 
 import java.util.List;
 
 @RestController
-public class ControllerEvent {
-    private ServiceEvent service_event;
+public class EventController {
+    private EventService service_event;
     @Autowired
-    public ControllerEvent(ServiceEvent service_event){
+    public EventController(EventService service_event){
         this.service_event = service_event;
     }
 //    @GetMapping("/events")

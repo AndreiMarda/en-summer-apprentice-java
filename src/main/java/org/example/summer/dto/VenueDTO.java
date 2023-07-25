@@ -12,10 +12,10 @@ public class VenueDTO {
 
     public VenueDTO(Venue venue)
     {
-        this.venueID=venue.getVenueID();
-        this.location=venue.getLocation();
-        this.type=venue.getType();
-        this.capacity=venue.getCapacity();
+        this.venueID = venue.getVenueID();
+        this.location = venue.getLocation();
+        this.type = venue.getType();
+        this.capacity = venue.getCapacity();
     }
 
     public int getVenueID() {

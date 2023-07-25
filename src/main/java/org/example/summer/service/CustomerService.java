@@ -13,4 +13,5 @@ public class CustomerService {
         this.customerRepository = customerRepository;
     }
     public List<Customer> customersFindAll(){return customerRepository.findAll();}
+    public List<Customer> customerFindById(){ return customerRepository.findById();}
 }

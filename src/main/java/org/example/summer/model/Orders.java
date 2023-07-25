@@ -4,7 +4,6 @@ import jakarta.persistence.*;
 
 import java.io.Serializable;
 import java.time.LocalDate;
-import java.util.Optional;
 
 @Entity
 @Table(name = "orders")
@@ -24,16 +23,7 @@ public class Orders implements Serializable {
     @Column (name = "number_of_tickets")
     private int numberOfTickets;
     @Column (name = "total_price")
-    private int price;
-
-    public Orders(int order_id, Customer customer_id, TicketCategory ticket_category, LocalDate ordered_at, int number_of_tickets, int price) {
-        this.orderId = order_id;
-        this.customer = customer_id;
-        this.ticketCategory = ticket_category;
-        this.orderedAt = ordered_at;
-        this.numberOfTickets = number_of_tickets;
-        this.price = price;
-    }
+    private Float price;
 
     public Orders() { }
 
@@ -77,11 +67,11 @@ public class Orders implements Serializable {
         this.numberOfTickets = number_of_tickets;
     }
 
-    public int getPrice() {
+    public Float getPrice() {
         return price;
     }
 
-    public void setPrice(int price) {
+    public void setPrice(Float price) {
         this.price = price;
     }
 }

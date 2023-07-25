@@ -16,12 +16,6 @@ public class Customer implements Serializable {
     @Column (name = "email")
     private String email;
 
-    public Customer(int customerId, String customerName, String email) {
-        this.customerId = customerId;
-        this.customerName = customerName;
-        this.email = email;
-    }
-
     public Customer(){ }
 
     public int getCustomerId() {

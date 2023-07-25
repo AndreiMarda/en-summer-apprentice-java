@@ -47,14 +47,14 @@ public class OrdersService {
             order.setTicketCategory(ticketCategory.get());
             order.setNumberOfTickets(orderDTO.getNumberOfTickets());
 
-            int totalPrice = order.getNumberOfTickets() * ticketCategory.get().getPrice();
+            Float totalPrice = order.getNumberOfTickets() * ticketCategory.get().getPrice();
             order.setPrice(totalPrice);
 
             order.setOrderedAt(LocalDate.now());
             if (customerRepository.findById(1).isEmpty()) {
                 throw new UserNotFoundException("User does not exist!");
             } else {
-                order.setCustomer(customerRepository.findById(1));
+                order.setCustomer(customerRepository.findById(1).get());
                 return orderRepository.save(order);
             }
         }
@@ -62,6 +62,4 @@ public class OrdersService {
     public Optional<Orders> findCustomerOrders(int customerId) {
         return orderRepository.findById(customerId);
     }
-
-
-    }
+}

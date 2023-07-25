@@ -21,7 +21,6 @@ public class OrderController {
     public List<Orders> getOrders() {
         return orderService.orderFindAll();
     }
-
     @PostMapping("/orders/create")
     public Order createOrder(@RequestBody OrderDTO orderDTO) throws Exception {
         return (Order) orderService.createOrder(orderDTO);

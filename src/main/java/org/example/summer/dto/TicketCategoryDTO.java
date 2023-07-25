@@ -8,11 +8,11 @@ public class TicketCategoryDTO {
     private int ticketCategoryID;
     private int eventID;
     private String description;
-    private int price;
+    private Float price;
 
     public TicketCategoryDTO(TicketCategory ticketCategory) {
         this.ticketCategoryID = ticketCategory.getTicketCategoryId();
-        this.eventID = ticketCategory.getEventID();
+        this.eventID = ticketCategory.getEvent().getEventId();
         this.description = ticketCategory.getDescription();
         this.price = ticketCategory.getPrice();
     }

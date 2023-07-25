@@ -11,7 +11,7 @@ import java.util.List;
 public class Event implements Serializable {
     @Id
     @GeneratedValue (strategy = GenerationType.IDENTITY)
-    @Column (name = "event_i]d")
+    @Column (name = "event_id")
     private int eventId;
     @JoinColumn (name = "event_type_id", referencedColumnName = "event_type_id")
     @ManyToOne
@@ -30,8 +30,7 @@ public class Event implements Serializable {
     @OneToMany(mappedBy = "event")
     private List<TicketCategory> ticketCategoriesList;
 
-
-    public Event(int eventId, EventType eventType, Venue venue, String eventDescription, String eventName, Timestamp startDate, Timestamp endDate) {
+    public Event(int eventId, EventType eventType, Venue venue, String eventDescription, String eventName, Timestamp startDate, Timestamp endDate, List<TicketCategory> ticketCategoriesList) {
         this.eventId = eventId;
         this.eventType = eventType;
         this.venue = venue;
@@ -39,6 +38,7 @@ public class Event implements Serializable {
         this.eventName = eventName;
         this.startDate = startDate;
         this.endDate = endDate;
+        this.ticketCategoriesList = ticketCategoriesList;
     }
 
     public Event(){ }

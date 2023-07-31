@@ -48,7 +48,7 @@ public class OrdersService {
             order.setNumberOfTickets(orderDTO.getNumberOfTickets());
 
             Float totalPrice = order.getNumberOfTickets() * ticketCategory.get().getPrice();
-            order.setPrice(totalPrice);
+            order.setTotalPrice(totalPrice);
 
             order.setOrderedAt(LocalDate.now());
             if (customerRepository.findById(1).isEmpty()) {

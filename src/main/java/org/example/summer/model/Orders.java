@@ -23,7 +23,7 @@ public class Orders implements Serializable {
     @Column (name = "number_of_tickets")
     private int numberOfTickets;
     @Column (name = "total_price")
-    private Float price;
+    private Float totalPrice;
 
     public Orders() { }
 
@@ -67,11 +67,11 @@ public class Orders implements Serializable {
         this.numberOfTickets = number_of_tickets;
     }
 
-    public Float getPrice() {
-        return price;
+    public Float getTotalPrice() {
+        return totalPrice;
     }
 
-    public void setPrice(Float price) {
-        this.price = price;
+    public void setTotalPrice(Float price) {
+        this.totalPrice = price;
     }
 }

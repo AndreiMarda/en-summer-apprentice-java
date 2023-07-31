@@ -8,5 +8,5 @@ import java.util.Optional;
 
 @Repository
 public interface VenueRepository extends JpaRepository<Venue, Integer> {
-    Optional<Venue> searchById(int id);
+    Optional<Venue> searchByvenueId(int id);
 }

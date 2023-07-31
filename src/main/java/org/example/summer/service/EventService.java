@@ -1,6 +1,7 @@
 package org.example.summer.service;
 
 import jakarta.persistence.EntityNotFoundException;
+import org.example.summer.dto.EventDTO;
 import org.example.summer.model.Event;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -29,6 +30,11 @@ public class EventService {
             throw new EntityNotFoundException("Event not found " + eventFindById);
     }
 
+    public Event createEvent(Event event)
+    {
+        return eventRepository.save(event);
+    }
+
     public List<Event> getEventsByVenue_idAndEvent_type_id(Integer venue_id, String event_type_name) {
         List<Event> result;
         if ((venue_id == null) && (event_type_name == null)) {
@@ -42,9 +48,5 @@ public class EventService {
             result = eventRepository.searchByVenueAndType(venue_id, event_type_name);
         }
         return result;
-    }
-
-    public Event getEventById(int event_id) {
-        return eventRepository.findById(event_id).orElse(null);
     }
 }

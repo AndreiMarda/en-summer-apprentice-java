@@ -9,5 +9,5 @@ import java.util.Optional;
 
 @Repository
 public interface CustomerRepository extends JpaRepository<Customer, Integer> {
-    List<Customer> findById();
+    List<Customer> findByCustomerId(int Id);
 }

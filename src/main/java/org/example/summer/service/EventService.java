@@ -17,7 +17,6 @@ public class EventService {
     public EventService(EventRepository event_repository) {
         this.eventRepository = event_repository;
     }
-
     public List<Event> eventFindAll() {
         return eventRepository.findAll();
     }

@@ -13,6 +13,4 @@ public class VenueService {
     public VenueService(VenueRepository venueRepository) {
         this.venueRepository = venueRepository;
     }
-
-    public List<Venue> venueFindAll(){return venueRepository.findAll();}
 }

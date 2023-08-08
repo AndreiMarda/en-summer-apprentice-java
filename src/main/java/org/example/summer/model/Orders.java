@@ -71,7 +71,7 @@ public class Orders implements Serializable {
         return totalPrice;
     }
 
-    public void setTotalPrice(Float price) {
-        this.totalPrice = price;
+    public void setTotalPrice(Float totalPrice) {
+        this.totalPrice = totalPrice;
     }
 }

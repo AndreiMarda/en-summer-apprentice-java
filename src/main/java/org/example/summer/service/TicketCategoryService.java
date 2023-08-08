@@ -13,5 +13,4 @@ public class TicketCategoryService {
     public TicketCategoryService(TicketCategoryRepository ticketCategoryRepository) {
         this.ticketCategoryRepository = ticketCategoryRepository;
     }
-    public List<TicketCategory> ticketcategoryFindAll(){return ticketCategoryRepository.findAll();}
 }

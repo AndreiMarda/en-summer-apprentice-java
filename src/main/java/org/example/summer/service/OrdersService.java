@@ -9,6 +9,7 @@ import org.example.summer.repository.CustomerRepository;
 import org.example.summer.repository.OrdersRepository;
 import org.example.summer.model.Orders;
 import org.example.summer.repository.TicketCategoryRepository;
+import org.example.summer.service.mapper.OrdersMapper;
 import org.springframework.stereotype.Service;
 
 import java.time.LocalDate;
@@ -34,16 +35,29 @@ public class OrdersService {
             throw new EntityNotFoundException("Event not found " + orderFindById);
         }
     }
+    public static OrderDTO orderFindById(Orders order){
+        OrderDTO orderDTO = new OrderDTO();
+
+        orderDTO.setOrderedAt(order.getOrderedAt());
+        orderDTO.setCustomer(order.getCustomer());
+        orderDTO.setTotalPrice(order.getTotalPrice());
+        orderDTO.setNumberOfTickets(order.getNumberOfTickets());
+        orderDTO.setTicketCategory(order.getTicket_categor());
+
+        return orderDTO;
+    }
+
     public List<Orders> orderFindAll(){
         return orderRepository.findAll();
     }
     public Orders createOrder(OrderDTO orderDTO) throws Exception {
-        Orders order = new Orders();
 
-        Optional<TicketCategory> ticketCategory = ticketCategoryRepository.findById(orderDTO.getTicketCategoryID());
+        Optional<TicketCategory> ticketCategory = ticketCategoryRepository.findById(orderDTO.getTicketCategory().getTicketCategoryId());
         if (ticketCategory.isEmpty()) {
             throw new TicketCategoryNotValid("Ticket category not valid!");
         } else {
+            Orders order = new Orders();
+
             order.setTicketCategory(ticketCategory.get());
             order.setNumberOfTickets(orderDTO.getNumberOfTickets());
 
@@ -56,10 +70,9 @@ public class OrdersService {
             } else {
                 order.setCustomer(customerRepository.findById(1).get());
                 return orderRepository.save(order);
+//                return OrdersMapper.converter(order);
             }
+
         }
-    }
-    public Optional<Orders> findCustomerOrders(int customerId) {
-        return orderRepository.findById(customerId);
     }
 }
